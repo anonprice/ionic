@@ -55,7 +55,7 @@ exports.config = {
     })
   ],
   outputTargets: [
-    { type: 'angular-proxy' },
+    { type: 'angular', directivesProxyFile: 'dist/angular/directives.ts' },
     { type: 'dist' }
   ],
   copy: [{ src: '**/*.scss' }],
