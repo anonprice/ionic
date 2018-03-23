@@ -358,6 +358,10 @@ declare global {
      * The main message to be displayed in the alert.
      */
     'message': string;
+<<<<<<< HEAD
+=======
+    'mode': string;
+>>>>>>> master
     /**
      * Returns a promise that resolves when the alert did dismiss. It also accepts a callback that is called in the same circustances.  ``` const {data, role} = await alert.onDidDismiss(); ```
      */
@@ -434,6 +438,10 @@ declare global {
        * The main message to be displayed in the alert.
        */
       'message'?: string;
+<<<<<<< HEAD
+=======
+      'mode'?: string;
+>>>>>>> master
       /**
        * Emitted after the alert has dismissed.
        */
@@ -2602,10 +2610,6 @@ declare global {
      */
     'mode': 'ios' | 'md';
     /**
-     * Callback function. If this property is set, a button tag will be rendered.
-     */
-    'onclick': (this: HTMLElement, ev: MouseEvent) => any;
-    /**
      * Whether or not this item should be tappable. If true, a button tag will be rendered. Defaults to `false`.
      */
     'tappable': boolean;
@@ -2648,10 +2652,13 @@ declare global {
        */
       'mode'?: 'ios' | 'md';
       /**
+<<<<<<< HEAD
        * Callback function. If this property is set, a button tag will be rendered.
        */
       'onclick'?: (this: HTMLElement, ev: MouseEvent) => any;
       /**
+=======
+>>>>>>> master
        * Whether or not this item should be tappable. If true, a button tag will be rendered. Defaults to `false`.
        */
       'tappable'?: boolean;
