@@ -27,6 +27,10 @@ export { ToastController } from './providers/toast-controller';
 
 export * from './types/interfaces';
 
+/*tslint:disable*/
+import '@ionic/core';
+
+export { Badge } from './directives/badge';
 
 import { IonicWindow } from './types/interfaces';
 

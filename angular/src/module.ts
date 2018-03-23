@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
   APP_INITIALIZER,
-  CUSTOM_ELEMENTS_SCHEMA,
   ModuleWithProviders,
   NgModule
 } from '@angular/core';
@@ -23,6 +22,9 @@ import { VirtualScroll } from './directives/virtual-scroll';
 import { VirtualItem } from './directives/virtual-item';
 import { VirtualHeader } from './directives/virtual-header';
 import { VirtualFooter } from './directives/virtual-footer';
+import { Badge } from './directives/badge';
+
+export { Badge };
 
 /* Providers */
 import { AngularDelegate } from './providers/angular-delegate';
@@ -52,6 +54,7 @@ import { ToastController } from './providers/toast-controller';
     VirtualItem,
     VirtualHeader,
     VirtualFooter,
+    Badge,
   ],
   exports: [
     BooleanValueAccessor,
@@ -67,7 +70,8 @@ import { ToastController } from './providers/toast-controller';
     VirtualScroll,
     VirtualItem,
     VirtualHeader,
-    VirtualFooter
+    VirtualFooter,
+    Badge
   ],
   providers: [
     AngularDelegate,
@@ -76,9 +80,6 @@ import { ToastController } from './providers/toast-controller';
   ],
   imports: [
     CommonModule,
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class IonicAngularModule {

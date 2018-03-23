@@ -55,6 +55,7 @@ exports.config = {
     })
   ],
   outputTargets: [
+    { type: 'angular-proxy' },
     { type: 'dist' }
   ],
   copy: [{ src: '**/*.scss' }],
