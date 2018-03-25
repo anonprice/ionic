@@ -1,9 +1,13 @@
 # Local @ionic/angular test app development
 
 1. `npm install` at the root of `angular`
-2. `cd` to the test app, such as `angular/test/nav`
-3. `npm install` in the test app directory
-4.
+2. `npm run build` to build local `@ionic/angular`
+3. `npm link` to locally link `@ionic/angular`
+4. `cd` to the test app, such as `angular/test/nav`
+5. `npm install` in the test app directory
+6. `npm link @ionic/angular` in the test app directory
+7. `ng serve` in the test app directory
+8. [http://localhost:4200/](http://localhost:4200/)
 
 
 # npm link local development
