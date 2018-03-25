@@ -55,8 +55,9 @@ exports.config = {
     })
   ],
   outputTargets: [
-    { type: 'angular', directivesProxyFile: 'dist/angular/directives.ts' },
-    { type: 'dist' }
+    {
+      type: 'dist'
+    }
   ],
   copy: [{ src: '**/*.scss' }],
   preamble: '(C) Ionic http://ionicframework.com - MIT License',
