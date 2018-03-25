@@ -1,8 +1,8 @@
 import { ComponentFactoryResolver, Directive, ElementRef, Injector} from '@angular/core';
 
+import { AngularDelegate } from '../providers/angular-delegate';
 import { NavOptions, NavParams, TransitionDoneFn, ViewController } from '@ionic/core';
 import { proxyEl } from '../util/util';
-import { AngularDelegate } from '..';
 
 
 @Directive({
