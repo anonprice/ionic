@@ -1,13 +1,13 @@
 /* angular directive proxies */
 import { Directive as NgDirective, ElementRef, EventEmitter as NgEventEmitter, Input as NgInput, Output as NgOutput } from '@angular/core';
 
-function outputs(instance: any, events: string[]) {
+export function outputs(instance: any, events: string[]) {
   events.forEach(eventName => {
     instance[eventName] = new NgEventEmitter();
   });
 }
 
-function inputs(instance: any, el: ElementRef, props: string[]) {
+export function inputs(instance: any, el: ElementRef, props: string[]) {
   props.forEach(propName => {
     Object.defineProperty(instance, propName, {
       get: () => el.nativeElement[propName], set: (val: any) => el.nativeElement[propName] = val

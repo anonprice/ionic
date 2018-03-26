@@ -20,6 +20,7 @@ export { IonTab } from './navigation/ion-tab';
 export { IonTabs } from './navigation/ion-tabs';
 
 // directives
+export { Icon } from './directives/icon';
 export { VirtualScroll } from './directives/virtual-scroll';
 export { VirtualItem } from './directives/virtual-item';
 export { VirtualHeader } from './directives/virtual-header';

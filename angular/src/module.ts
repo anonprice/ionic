@@ -31,6 +31,7 @@ import { PopoverController } from './providers/popover-controller';
 import { ToastController } from './providers/toast-controller';
 
 // directives
+import { Icon } from './directives/icon';
 import { VirtualScroll } from './directives/virtual-scroll';
 import { VirtualItem } from './directives/virtual-item';
 import { VirtualHeader } from './directives/virtual-header';
@@ -157,6 +158,7 @@ import {
     Grid,
     Header,
     HideWhen,
+    Icon,
     InfiniteScroll,
     InfiniteScrollContent,
     Input,
@@ -258,6 +260,7 @@ import {
     Grid,
     Header,
     HideWhen,
+    Icon,
     InfiniteScroll,
     InfiniteScrollContent,
     Input,
