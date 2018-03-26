@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 import { GroupInputsPageComponent } from './group-inputs-page.component';
 
@@ -11,7 +11,10 @@ describe('GroupInputsPageComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [FormsModule, IonicAngularModule],
+        imports: [
+          FormsModule,
+          IonicModule
+        ],
         declarations: [GroupInputsPageComponent]
       }).compileComponents();
     })

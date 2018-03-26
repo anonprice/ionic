@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 import { GroupInputsPageComponent } from './group-inputs-page.component';
 import { GroupInputsPageRoutingModule } from './group-inputs-page-routing.module';
@@ -11,7 +11,7 @@ import { GroupInputsPageRoutingModule } from './group-inputs-page-routing.module
     CommonModule,
     FormsModule,
     GroupInputsPageRoutingModule,
-    IonicAngularModule
+    IonicModule
   ],
   declarations: [GroupInputsPageComponent]
 })

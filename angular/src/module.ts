@@ -342,10 +342,10 @@ import {
     CommonModule,
   ]
 })
-export class IonicAngularModule {
+export class IonicModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: IonicAngularModule,
+      ngModule: IonicModule,
       providers: [
         AlertController,
         ActionSheetController,

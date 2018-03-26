@@ -1,4 +1,4 @@
-export { IonicAngularModule } from './module';
+export { IonicModule } from './module';
 
 // providers
 export { AngularDelegate } from './providers/angular-delegate';

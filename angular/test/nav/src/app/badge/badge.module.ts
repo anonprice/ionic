@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { BadgePageComponent } from './badge-page.component';
 import { BadgeRoutingModule } from './badge-routing.module';
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     BadgeRoutingModule,
-    IonicAngularModule
+    IonicModule
   ],
   declarations: [BadgePageComponent]
 })

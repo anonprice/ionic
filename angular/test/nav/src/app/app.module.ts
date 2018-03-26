@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PostTestService } from './post-test/post-test.service';
 
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +14,7 @@ import { IonicAngularModule } from '@ionic/angular';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    IonicAngularModule.forRoot(),
+    IonicModule.forRoot(),
   ],
   bootstrap: [AppComponent],
   providers: [PostTestService]
