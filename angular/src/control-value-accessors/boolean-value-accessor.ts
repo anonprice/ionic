@@ -17,7 +17,6 @@ import { setIonicClasses } from './util/set-ionic-classes';
 export class BooleanValueAccessor implements ControlValueAccessor {
 
   constructor(private element: ElementRef) {
-    console.log('BooleanValueAccessor');
     this.onChange = () => {/**/};
     this.onTouched = () => {/**/};
   }
