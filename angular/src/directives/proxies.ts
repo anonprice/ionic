@@ -1,6 +1,12 @@
 /* angular directive proxies */
 import { Directive as NgDirective, ElementRef, EventEmitter as NgEventEmitter, Input as NgInput, Output as NgOutput } from '@angular/core';
 
+function outputs(instance: any, events: string[]) {
+  events.forEach(eventName => {
+    instance[eventName] = new NgEventEmitter();
+  });
+}
+
 function inputs(instance: any, el: ElementRef, props: string[]) {
   props.forEach(propName => {
     Object.defineProperty(instance, propName, {
@@ -9,12 +15,14 @@ function inputs(instance: any, el: ElementRef, props: string[]) {
   });
 }
 
-const accept = 'accept', activated = 'activated', allowEmptySelection = 'allowEmptySelection', animated = 'animated', autoBlockAll = 'autoBlockAll', autoHide = 'autoHide', autocapitalize = 'autocapitalize', autocomplete = 'autocomplete', autocorrect = 'autocorrect', autofocus = 'autofocus', base = 'base', buttonType = 'buttonType', cancelButtonText = 'cancelButtonText', cancelText = 'cancelText', checked = 'checked', clearInput = 'clearInput', clearOnEdit = 'clearOnEdit', closeDuration = 'closeDuration', color = 'color', cols = 'cols', component = 'component', contentId = 'contentId', data = 'data', debounce = 'debounce', defaultHref = 'defaultHref', detail = 'detail', direction = 'direction', disableScroll = 'disableScroll', disabled = 'disabled', displayFormat = 'displayFormat', doneText = 'doneText', dualKnobs = 'dualKnobs', duration = 'duration', edge = 'edge', expandable = 'expandable', fill = 'fill', fixed = 'fixed', floating = 'floating', forceOverscroll = 'forceOverscroll', from = 'from', fullscreen = 'fullscreen', gestureName = 'gestureName', gesturePriority = 'gesturePriority', highlight = 'highlight', href = 'href', icon = 'icon', inputmode = 'inputmode', interfaceOptions = 'interfaceOptions', knob = 'knob', labelId = 'labelId', layout = 'layout', loadingSpinner = 'loadingSpinner', loadingText = 'loadingText', max = 'max', maxAngle = 'maxAngle', maxEdgeStart = 'maxEdgeStart', maxlength = 'maxlength', mediaQuery = 'mediaQuery', menu = 'menu', menuId = 'menuId', message = 'message', min = 'min', minlength = 'minlength', mode = 'mode', multiple = 'multiple', name = 'name', okText = 'okText', options = 'options', or = 'or', orientation = 'orientation', pager = 'pager', passive = 'passive', pattern = 'pattern', paused = 'paused', persistent = 'persistent', pickerFormat = 'pickerFormat', pin = 'pin', placeholder = 'placeholder', placement = 'placement', platform = 'platform', position = 'position', pressed = 'pressed', pullMax = 'pullMax', pullMin = 'pullMin', pullingIcon = 'pullingIcon', pullingText = 'pullingText', ratio = 'ratio', readonly = 'readonly', refreshingSpinner = 'refreshingSpinner', refreshingText = 'refreshingText', required = 'required', results = 'results', round = 'round', rows = 'rows', scrollEnabled = 'scrollEnabled', scrollEvents = 'scrollEvents', scrollable = 'scrollable', selected = 'selected', selectedText = 'selectedText', show = 'show', showCancelButton = 'showCancelButton', size = 'size', snapbackDuration = 'snapbackDuration', snaps = 'snaps', spellcheck = 'spellcheck', stacked = 'stacked', step = 'step', stopPropagation = 'stopPropagation', strong = 'strong', subTitle = 'subTitle', swipeEnabled = 'swipeEnabled', tappable = 'tappable', threshold = 'threshold', title = 'title', translucent = 'translucent', type = 'type', url = 'url', useHash = 'useHash', useTapClick = 'useTapClick', val = 'val', value = 'value', visible = 'visible', width = 'width', wrap = 'wrap';
+const accept = 'accept', activated = 'activated', allowEmptySelection = 'allowEmptySelection', animated = 'animated', autoBlockAll = 'autoBlockAll', autoHide = 'autoHide', autocapitalize = 'autocapitalize', autocomplete = 'autocomplete', autocorrect = 'autocorrect', autofocus = 'autofocus', base = 'base', buttonType = 'buttonType', cancelButtonText = 'cancelButtonText', cancelText = 'cancelText', checked = 'checked', clearInput = 'clearInput', clearOnEdit = 'clearOnEdit', closeDuration = 'closeDuration', color = 'color', cols = 'cols', component = 'component', contentId = 'contentId', data = 'data', debounce = 'debounce', defaultHref = 'defaultHref', detail = 'detail', direction = 'direction', disableScroll = 'disableScroll', disabled = 'disabled', displayFormat = 'displayFormat', doneText = 'doneText', dualKnobs = 'dualKnobs', duration = 'duration', edge = 'edge', expandable = 'expandable', fill = 'fill', fixed = 'fixed', floating = 'floating', forceOverscroll = 'forceOverscroll', from = 'from', fullscreen = 'fullscreen', gestureName = 'gestureName', gesturePriority = 'gesturePriority', highlight = 'highlight', href = 'href', icon = 'icon', inputmode = 'inputmode', interfaceOptions = 'interfaceOptions', ionBackdropTap = 'ionBackdropTap', ionBlur = 'ionBlur', ionCancel = 'ionCancel', ionChange = 'ionChange', ionClear = 'ionClear', ionClick = 'ionClick', ionClose = 'ionClose', ionDecrease = 'ionDecrease', ionDrag = 'ionDrag', ionFocus = 'ionFocus', ionGestureCaptured = 'ionGestureCaptured', ionGestureEnd = 'ionGestureEnd', ionGestureMove = 'ionGestureMove', ionGestureNotCaptured = 'ionGestureNotCaptured', ionGestureStart = 'ionGestureStart', ionIncrease = 'ionIncrease', ionInfinite = 'ionInfinite', ionInput = 'ionInput', ionInputDidLoad = 'ionInputDidLoad', ionInputDidUnload = 'ionInputDidUnload', ionMenuChange = 'ionMenuChange', ionOpen = 'ionOpen', ionPress = 'ionPress', ionPull = 'ionPull', ionRadioDidLoad = 'ionRadioDidLoad', ionRadioDidUnload = 'ionRadioDidUnload', ionRefresh = 'ionRefresh', ionRouteChanged = 'ionRouteChanged', ionRouteDataChanged = 'ionRouteDataChanged', ionRouteRedirectChanged = 'ionRouteRedirectChanged', ionScroll = 'ionScroll', ionScrollEnd = 'ionScrollEnd', ionScrollStart = 'ionScrollStart', ionSelect = 'ionSelect', ionSelectOptionDidLoad = 'ionSelectOptionDidLoad', ionSelectOptionDidUnload = 'ionSelectOptionDidUnload', ionSlideDidChange = 'ionSlideDidChange', ionSlideDrag = 'ionSlideDrag', ionSlideNextEnd = 'ionSlideNextEnd', ionSlideNextStart = 'ionSlideNextStart', ionSlidePrevEnd = 'ionSlidePrevEnd', ionSlidePrevStart = 'ionSlidePrevStart', ionSlideReachEnd = 'ionSlideReachEnd', ionSlideReachStart = 'ionSlideReachStart', ionSlideTouchEnd = 'ionSlideTouchEnd', ionSlideTouchStart = 'ionSlideTouchStart', ionSlideTransitionEnd = 'ionSlideTransitionEnd', ionSlideTransitionStart = 'ionSlideTransitionStart', ionSlideWillChange = 'ionSlideWillChange', ionSplitPaneVisible = 'ionSplitPaneVisible', ionStart = 'ionStart', ionStyle = 'ionStyle', ionSwipe = 'ionSwipe', ionTabButtonDidLoad = 'ionTabButtonDidLoad', ionTabButtonDidUnload = 'ionTabButtonDidUnload', ionTabbarClick = 'ionTabbarClick', knob = 'knob', labelId = 'labelId', layout = 'layout', loadingSpinner = 'loadingSpinner', loadingText = 'loadingText', max = 'max', maxAngle = 'maxAngle', maxEdgeStart = 'maxEdgeStart', maxlength = 'maxlength', mediaQuery = 'mediaQuery', menu = 'menu', menuId = 'menuId', message = 'message', min = 'min', minlength = 'minlength', mode = 'mode', multiple = 'multiple', name = 'name', okText = 'okText', options = 'options', or = 'or', orientation = 'orientation', pager = 'pager', passive = 'passive', pattern = 'pattern', paused = 'paused', persistent = 'persistent', pickerFormat = 'pickerFormat', pin = 'pin', placeholder = 'placeholder', placement = 'placement', platform = 'platform', position = 'position', pressed = 'pressed', pullMax = 'pullMax', pullMin = 'pullMin', pullingIcon = 'pullingIcon', pullingText = 'pullingText', ratio = 'ratio', readonly = 'readonly', refreshingSpinner = 'refreshingSpinner', refreshingText = 'refreshingText', required = 'required', results = 'results', round = 'round', rows = 'rows', scrollEnabled = 'scrollEnabled', scrollEvents = 'scrollEvents', scrollable = 'scrollable', selected = 'selected', selectedText = 'selectedText', show = 'show', showCancelButton = 'showCancelButton', size = 'size', snapbackDuration = 'snapbackDuration', snaps = 'snaps', spellcheck = 'spellcheck', stacked = 'stacked', step = 'step', stopPropagation = 'stopPropagation', strong = 'strong', subTitle = 'subTitle', swipeEnabled = 'swipeEnabled', tappable = 'tappable', threshold = 'threshold', title = 'title', translucent = 'translucent', type = 'type', url = 'url', useHash = 'useHash', useTapClick = 'useTapClick', val = 'val', value = 'value', visible = 'visible', width = 'width', wrap = 'wrap';
 
 @NgDirective({ selector: 'ion-anchor' })
 export class Anchor {
   @NgInput() href: string;
-  constructor(el: ElementRef) { inputs(this, el, [href]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [href]);
+  }
 }
 
 @NgDirective({ selector: 'ion-app' })
@@ -29,7 +37,9 @@ export class Avatar {
 export class BackButton {
   @NgInput() icon: string;
   @NgInput() defaultHref: string;
-  constructor(el: ElementRef) { inputs(this, el, [icon, defaultHref]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [icon, defaultHref]);
+  }
 }
 
 @NgDirective({ selector: 'ion-backdrop' })
@@ -38,7 +48,10 @@ export class Backdrop {
   @NgInput() tappable: boolean;
   @NgInput() stopPropagation: boolean;
   @NgOutput() ionBackdropTap: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [visible, tappable, stopPropagation]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [visible, tappable, stopPropagation]);
+    outputs(this, [ionBackdropTap]);
+  }
 }
 
 @NgDirective({ selector: 'ion-badge' })
@@ -47,7 +60,9 @@ export class Badge {
    * The color to use from your Sass `$colors` map. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information, see [Theming your App](/docs/theming/theming-your-app).
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-button' })
@@ -82,7 +97,10 @@ export class Button {
   @NgInput() color: string;
   @NgOutput() ionFocus: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [type, href, buttonType, disabled, round, strong, color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [type, href, buttonType, disabled, round, strong, color]);
+    outputs(this, [ionFocus, ionBlur]);
+  }
 }
 
 @NgDirective({ selector: 'ion-buttons' })
@@ -95,7 +113,9 @@ export class Card {
    * The color to use for the background. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-card-content' })
@@ -104,7 +124,9 @@ export class CardContent {
    * The color to use for the text. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-card-header' })
@@ -117,7 +139,9 @@ export class CardHeader {
    * If true, the card header will be translucent. Defaults to `false`.
    */
   @NgInput() translucent: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [color, translucent]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, translucent]);
+  }
 }
 
 @NgDirective({ selector: 'ion-card-subtitle' })
@@ -126,7 +150,9 @@ export class CardSubtitle {
    * The color to use for the text color. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-card-title' })
@@ -135,7 +161,9 @@ export class CardTitle {
    * The color to use for the text color. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-checkbox' })
@@ -164,7 +192,10 @@ export class Checkbox {
   @NgOutput() ionFocus: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
   @NgOutput() ionStyle: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [color, name, checked, disabled, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, name, checked, disabled, value]);
+    outputs(this, [ionChange, ionFocus, ionBlur, ionStyle]);
+  }
 }
 
 @NgDirective({ selector: 'ion-chip' })
@@ -173,7 +204,9 @@ export class Chip {
    * The color to use. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-chip-button' })
@@ -194,7 +227,9 @@ export class ChipButton {
    * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
    */
   @NgInput() href: string;
-  constructor(el: ElementRef) { inputs(this, el, [color, disabled, fill, href]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, disabled, fill, href]);
+  }
 }
 
 @NgDirective({ selector: 'ion-col' })
@@ -213,7 +248,9 @@ export class Content {
   @NgInput() forceOverscroll: boolean;
   @NgInput() scrollEnabled: boolean;
   @NgInput() scrollEvents: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [fullscreen, forceOverscroll, scrollEnabled, scrollEvents]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [fullscreen, forceOverscroll, scrollEnabled, scrollEvents]);
+  }
 }
 
 @NgDirective({ selector: 'ion-cordova-platform' })
@@ -260,7 +297,10 @@ export class Datetime {
   @NgInput() value: string;
   @NgOutput() ionCancel: NgEventEmitter<any>;
   @NgOutput() ionStyle: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [disabled, min, max, displayFormat, pickerFormat, cancelText, doneText, placeholder, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [disabled, min, max, displayFormat, pickerFormat, cancelText, doneText, placeholder, value]);
+    outputs(this, [ionCancel, ionStyle]);
+  }
 }
 
 @NgDirective({ selector: 'ion-fab' })
@@ -269,7 +309,9 @@ export class Fab {
    * If true, the fab will display on the edge of the header if `vertical` is `"top"`, and on the edge of the footer if it is `"bottom"`. Should be used with a `fixed` slot.
    */
   @NgInput() edge: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [edge]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [edge]);
+  }
 }
 
 @NgDirective({ selector: 'ion-fab-button' })
@@ -295,7 +337,9 @@ export class FabButton {
    */
   @NgInput() translucent: boolean;
   @NgInput() show: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [color, activated, disabled, href, translucent, show]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, activated, disabled, href, translucent, show]);
+  }
 }
 
 @NgDirective({ selector: 'ion-fab-list' })
@@ -304,7 +348,9 @@ export class FabList {
    * If true, the fab list will be show all fab buttons in the list. Defaults to `false`.
    */
   @NgInput() activated: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [activated]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [activated]);
+  }
 }
 
 @NgDirective({ selector: 'ion-footer' })
@@ -313,7 +359,9 @@ export class Footer {
    * If true, the footer will be translucent. Note: In order to scroll content behind the footer, the `fullscreen` attribute needs to be set on the content. Defaults to `false`.
    */
   @NgInput() translucent: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [translucent]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [translucent]);
+  }
 }
 
 @NgDirective({ selector: 'ion-gesture' })
@@ -333,12 +381,18 @@ export class Gesture {
   @NgOutput() ionGestureEnd: NgEventEmitter<any>;
   @NgOutput() ionGestureNotCaptured: NgEventEmitter<any>;
   @NgOutput() ionPress: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [disabled, autoBlockAll, disableScroll, direction, gestureName, gesturePriority, passive, maxAngle, threshold, type]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [disabled, autoBlockAll, disableScroll, direction, gestureName, gesturePriority, passive, maxAngle, threshold, type]);
+    outputs(this, [ionGestureMove, ionGestureStart, ionGestureEnd, ionGestureNotCaptured, ionPress]);
+  }
 }
 
 @NgDirective({ selector: 'ion-gesture-controller' })
 export class GestureController {
   @NgOutput() ionGestureCaptured: NgEventEmitter<any>;
+  constructor() {
+    outputs(this, [ionGestureCaptured]);
+  }
 }
 
 @NgDirective({ selector: 'ion-grid' })
@@ -351,7 +405,9 @@ export class Header {
    * If true, the header will be translucent. Note: In order to scroll content behind the header, the `fullscreen` attribute needs to be set on the content. Defaults to `false`.
    */
   @NgInput() translucent: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [translucent]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [translucent]);
+  }
 }
 
 @NgDirective({ selector: 'ion-hide-when' })
@@ -362,7 +418,9 @@ export class HideWhen {
   @NgInput() mode: string;
   @NgInput() platform: string;
   @NgInput() or: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [orientation, mediaQuery, size, mode, platform, or]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [orientation, mediaQuery, size, mode, platform, or]);
+  }
 }
 
 @NgDirective({ selector: 'ion-infinite-scroll' })
@@ -380,7 +438,10 @@ export class InfiniteScroll {
    */
   @NgInput() position: string;
   @NgOutput() ionInfinite: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [threshold, disabled, position]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [threshold, disabled, position]);
+    outputs(this, [ionInfinite]);
+  }
 }
 
 @NgDirective({ selector: 'ion-infinite-scroll-content' })
@@ -393,7 +454,9 @@ export class InfiniteScrollContent {
    * Optional text to display while loading.
    */
   @NgInput() loadingText: string;
-  constructor(el: ElementRef) { inputs(this, el, [loadingSpinner, loadingText]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [loadingSpinner, loadingText]);
+  }
 }
 
 @NgDirective({ selector: 'ion-input' })
@@ -512,7 +575,10 @@ export class Input {
   @NgOutput() ionFocus: NgEventEmitter<any>;
   @NgOutput() ionInputDidLoad: NgEventEmitter<any>;
   @NgOutput() ionInputDidUnload: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [accept, autocapitalize, autocomplete, autocorrect, autofocus, checked, clearInput, clearOnEdit, debounce, disabled, inputmode, max, maxlength, min, minlength, multiple, name, pattern, placeholder, readonly, required, results, spellcheck, step, size, type, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [accept, autocapitalize, autocomplete, autocorrect, autofocus, checked, clearInput, clearOnEdit, debounce, disabled, inputmode, max, maxlength, min, minlength, multiple, name, pattern, placeholder, readonly, required, results, spellcheck, step, size, type, value]);
+    outputs(this, [ionInput, ionStyle, ionBlur, ionFocus, ionInputDidLoad, ionInputDidUnload]);
+  }
 }
 
 @NgDirective({ selector: 'ion-item' })
@@ -537,7 +603,9 @@ export class Item {
    * Whether or not this item should be tappable. If true, a button tag will be rendered. Defaults to `false`.
    */
   @NgInput() tappable: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [color, detail, disabled, href, tappable]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, detail, disabled, href, tappable]);
+  }
 }
 
 @NgDirective({ selector: 'ion-item-divider' })
@@ -546,7 +614,9 @@ export class ItemDivider {
    * The color to use from your Sass `$colors` map. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information, see [Theming your App](/docs/theming/theming-your-app).
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-item-group' })
@@ -571,17 +641,25 @@ export class ItemOption {
    * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
    */
   @NgInput() href: string;
-  constructor(el: ElementRef) { inputs(this, el, [color, disabled, expandable, href]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, disabled, expandable, href]);
+  }
 }
 
 @NgDirective({ selector: 'ion-item-options' })
 export class ItemOptions {
   @NgOutput() ionSwipe: NgEventEmitter<any>;
+  constructor() {
+    outputs(this, [ionSwipe]);
+  }
 }
 
 @NgDirective({ selector: 'ion-item-sliding' })
 export class ItemSliding {
   @NgOutput() ionDrag: NgEventEmitter<any>;
+  constructor() {
+    outputs(this, [ionDrag]);
+  }
 }
 
 @NgDirective({ selector: 'ion-label' })
@@ -603,7 +681,10 @@ export class Label {
    */
   @NgInput() stacked: boolean;
   @NgOutput() ionStyle: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [color, fixed, floating, stacked]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, fixed, floating, stacked]);
+    outputs(this, [ionStyle]);
+  }
 }
 
 @NgDirective({ selector: 'ion-list' })
@@ -616,7 +697,9 @@ export class ListHeader {
    * The color to use from your Sass `$colors` map. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information, see [Theming your App](/docs/theming/theming-your-app).
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-menu' })
@@ -649,7 +732,10 @@ export class Menu {
   @NgOutput() ionOpen: NgEventEmitter<any>;
   @NgOutput() ionClose: NgEventEmitter<any>;
   @NgOutput() ionMenuChange: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [contentId, menuId, type, disabled, swipeEnabled, persistent, maxEdgeStart]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [contentId, menuId, type, disabled, swipeEnabled, persistent, maxEdgeStart]);
+    outputs(this, [ionOpen, ionClose, ionMenuChange]);
+  }
 }
 
 @NgDirective({ selector: 'ion-menu-button' })
@@ -662,7 +748,9 @@ export class MenuButton {
    * Automatically hides the content when the corresponding menu is not active
    */
   @NgInput() autoHide: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [menu, autoHide]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [menu, autoHide]);
+  }
 }
 
 @NgDirective({ selector: 'ion-menu-toggle' })
@@ -675,7 +763,9 @@ export class MenuToggle {
    * Automatically hides the content when the corresponding menu is not active
    */
   @NgInput() autoHide: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [menu, autoHide]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [menu, autoHide]);
+  }
 }
 
 @NgDirective({ selector: 'ion-nav-pop' })
@@ -687,7 +777,9 @@ export class NavPush {
   @NgInput() component: any;
   @NgInput() url: string;
   @NgInput() data: any;
-  constructor(el: ElementRef) { inputs(this, el, [component, url, data]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [component, url, data]);
+  }
 }
 
 @NgDirective({ selector: 'ion-nav-set-root' })
@@ -695,7 +787,9 @@ export class NavSetRoot {
   @NgInput() component: any;
   @NgInput() url: string;
   @NgInput() data: any;
-  constructor(el: ElementRef) { inputs(this, el, [component, url, data]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [component, url, data]);
+  }
 }
 
 @NgDirective({ selector: 'ion-note' })
@@ -704,7 +798,9 @@ export class Note {
    * The color to use from your Sass `$colors` map. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information, see [Theming your App](/docs/theming/theming-your-app).
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-radio' })
@@ -735,7 +831,10 @@ export class Radio {
   @NgOutput() ionSelect: NgEventEmitter<any>;
   @NgOutput() ionFocus: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [color, name, disabled, checked, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, name, disabled, checked, value]);
+    outputs(this, [ionRadioDidLoad, ionRadioDidUnload, ionStyle, ionSelect, ionFocus, ionBlur]);
+  }
 }
 
 @NgDirective({ selector: 'ion-radio-group' })
@@ -754,7 +853,10 @@ export class RadioGroup {
    */
   @NgInput() value: string;
   @NgOutput() ionChange: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [allowEmptySelection, disabled, name, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [allowEmptySelection, disabled, name, value]);
+    outputs(this, [ionChange]);
+  }
 }
 
 @NgDirective({ selector: 'ion-range' })
@@ -800,7 +902,10 @@ export class Range {
   @NgOutput() ionStyle: NgEventEmitter<any>;
   @NgOutput() ionFocus: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [color, debounce, disabled, dualKnobs, max, min, pin, snaps, step, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, debounce, disabled, dualKnobs, max, min, pin, snaps, step, value]);
+    outputs(this, [ionChange, ionStyle, ionFocus, ionBlur]);
+  }
 }
 
 @NgDirective({ selector: 'ion-range-knob' })
@@ -816,7 +921,10 @@ export class RangeKnob {
   @NgInput() ratio: number;
   @NgOutput() ionIncrease: NgEventEmitter<any>;
   @NgOutput() ionDecrease: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [pressed, pin, min, max, val, disabled, labelId, knob, ratio]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [pressed, pin, min, max, val, disabled, labelId, knob, ratio]);
+    outputs(this, [ionIncrease, ionDecrease]);
+  }
 }
 
 @NgDirective({ selector: 'ion-refresher' })
@@ -844,7 +952,10 @@ export class Refresher {
   @NgOutput() ionRefresh: NgEventEmitter<any>;
   @NgOutput() ionPull: NgEventEmitter<any>;
   @NgOutput() ionStart: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [pullMin, pullMax, closeDuration, snapbackDuration, disabled]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [pullMin, pullMax, closeDuration, snapbackDuration, disabled]);
+    outputs(this, [ionRefresh, ionPull, ionStart]);
+  }
 }
 
 @NgDirective({ selector: 'ion-refresher-content' })
@@ -865,7 +976,9 @@ export class RefresherContent {
    * The text you want to display when performing a refresh
    */
   @NgInput() refreshingText: string;
-  constructor(el: ElementRef) { inputs(this, el, [pullingIcon, pullingText, refreshingSpinner, refreshingText]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [pullingIcon, pullingText, refreshingSpinner, refreshingText]);
+  }
 }
 
 @NgDirective({ selector: 'ion-reorder' })
@@ -878,13 +991,17 @@ export class ReorderGroup {
    * If true, the reorder will be hidden. Defaults to `true`.
    */
   @NgInput() disabled: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [disabled]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [disabled]);
+  }
 }
 
 @NgDirective({ selector: 'ion-ripple-effect' })
 export class RippleEffect {
   @NgInput() useTapClick: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [useTapClick]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [useTapClick]);
+  }
 }
 
 @NgDirective({ selector: 'ion-route' })
@@ -898,7 +1015,10 @@ export class Route {
    */
   @NgInput() component: string;
   @NgOutput() ionRouteDataChanged: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [url, component]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [url, component]);
+    outputs(this, [ionRouteDataChanged]);
+  }
 }
 
 @NgDirective({ selector: 'ion-route-redirect' })
@@ -908,7 +1028,10 @@ export class RouteRedirect {
    */
   @NgInput() from: string;
   @NgOutput() ionRouteRedirectChanged: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [from]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [from]);
+    outputs(this, [ionRouteRedirectChanged]);
+  }
 }
 
 @NgDirective({ selector: 'ion-router' })
@@ -916,13 +1039,18 @@ export class Router {
   @NgInput() base: string;
   @NgInput() useHash: boolean;
   @NgOutput() ionRouteChanged: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [base, useHash]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [base, useHash]);
+    outputs(this, [ionRouteChanged]);
+  }
 }
 
 @NgDirective({ selector: 'ion-router-outlet' })
 export class RouterOutlet {
   @NgInput() animated: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [animated]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [animated]);
+  }
 }
 
 @NgDirective({ selector: 'ion-row' })
@@ -940,7 +1068,10 @@ export class Scroll {
   @NgOutput() ionScrollStart: NgEventEmitter<any>;
   @NgOutput() ionScroll: NgEventEmitter<any>;
   @NgOutput() ionScrollEnd: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [mode, forceOverscroll, scrollEvents]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [mode, forceOverscroll, scrollEvents]);
+    outputs(this, [ionScrollStart, ionScroll, ionScrollEnd]);
+  }
 }
 
 @NgDirective({ selector: 'ion-searchbar' })
@@ -994,7 +1125,10 @@ export class Searchbar {
   @NgOutput() ionClear: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
   @NgOutput() ionFocus: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [color, animated, autocomplete, autocorrect, cancelButtonText, debounce, placeholder, showCancelButton, spellcheck, type, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, animated, autocomplete, autocorrect, cancelButtonText, debounce, placeholder, showCancelButton, spellcheck, type, value]);
+    outputs(this, [ionInput, ionCancel, ionClear, ionBlur, ionFocus]);
+  }
 }
 
 @NgDirective({ selector: 'ion-segment' })
@@ -1009,7 +1143,10 @@ export class Segment {
    */
   @NgInput() value: string;
   @NgOutput() ionChange: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [color, disabled, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, disabled, value]);
+    outputs(this, [ionChange]);
+  }
 }
 
 @NgDirective({ selector: 'ion-segment-button' })
@@ -1033,7 +1170,10 @@ export class SegmentButton {
    */
   @NgInput() value: string;
   @NgOutput() ionClick: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [activated, color, checked, disabled, href, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [activated, color, checked, disabled, href, value]);
+    outputs(this, [ionClick]);
+  }
 }
 
 @NgDirective({ selector: 'ion-select' })
@@ -1079,7 +1219,10 @@ export class Select {
   @NgOutput() ionFocus: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
   @NgOutput() ionStyle: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [disabled, cancelText, okText, placeholder, name, selectedText, multiple, 'interface', interfaceOptions]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [disabled, cancelText, okText, placeholder, name, selectedText, multiple, 'interface', interfaceOptions]);
+    outputs(this, [ionChange, ionCancel, ionFocus, ionBlur, ionStyle]);
+  }
 }
 
 @NgDirective({ selector: 'ion-select-option' })
@@ -1094,7 +1237,10 @@ export class SelectOption {
   @NgInput() selected: boolean;
   @NgOutput() ionSelectOptionDidLoad: NgEventEmitter<any>;
   @NgOutput() ionSelectOptionDidUnload: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [disabled, selected]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [disabled, selected]);
+    outputs(this, [ionSelectOptionDidLoad, ionSelectOptionDidUnload]);
+  }
 }
 
 @NgDirective({ selector: 'ion-select-popover' })
@@ -1102,7 +1248,9 @@ export class SelectPopover {
   @NgInput() title: string;
   @NgInput() subTitle: string;
   @NgInput() message: string;
-  constructor(el: ElementRef) { inputs(this, el, [title, subTitle, message]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [title, subTitle, message]);
+  }
 }
 
 @NgDirective({ selector: 'ion-show-when' })
@@ -1113,13 +1261,17 @@ export class ShowWhen {
   @NgInput() mode: string;
   @NgInput() platform: string;
   @NgInput() or: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [orientation, mediaQuery, size, mode, platform, or]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [orientation, mediaQuery, size, mode, platform, or]);
+  }
 }
 
 @NgDirective({ selector: 'ion-skeleton-text' })
 export class SkeletonText {
   @NgInput() width: string;
-  constructor(el: ElementRef) { inputs(this, el, [width]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [width]);
+  }
 }
 
 @NgDirective({ selector: 'ion-slide' })
@@ -1149,7 +1301,10 @@ export class Slides {
   @NgOutput() ionSlideReachEnd: NgEventEmitter<any>;
   @NgOutput() ionSlideTouchStart: NgEventEmitter<any>;
   @NgOutput() ionSlideTouchEnd: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [options, pager]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [options, pager]);
+    outputs(this, [ionSlideWillChange, ionSlideDidChange, ionSlideNextStart, ionSlidePrevStart, ionSlideNextEnd, ionSlidePrevEnd, ionSlideTransitionStart, ionSlideTransitionEnd, ionSlideDrag, ionSlideReachStart, ionSlideReachEnd, ionSlideTouchStart, ionSlideTouchEnd]);
+  }
 }
 
 @NgDirective({ selector: 'ion-spinner' })
@@ -1170,7 +1325,9 @@ export class Spinner {
    * If true, the spinner's animation will be paused. Defaults to `false`.
    */
   @NgInput() paused: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [color, duration, name, paused]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, duration, name, paused]);
+  }
 }
 
 @NgDirective({ selector: 'ion-split-pane' })
@@ -1181,13 +1338,18 @@ export class SplitPane {
   @NgInput() disabled: boolean;
   @NgOutput() ionChange: NgEventEmitter<any>;
   @NgOutput() ionSplitPaneVisible: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [disabled]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [disabled]);
+    outputs(this, [ionChange, ionSplitPaneVisible]);
+  }
 }
 
 @NgDirective({ selector: 'ion-status-tap' })
 export class StatusTap {
   @NgInput() duration: number;
-  constructor(el: ElementRef) { inputs(this, el, [duration]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [duration]);
+  }
 }
 
 @NgDirective({ selector: 'ion-tab-button' })
@@ -1196,7 +1358,10 @@ export class TabButton {
   @NgOutput() ionTabbarClick: NgEventEmitter<any>;
   @NgOutput() ionTabButtonDidLoad: NgEventEmitter<any>;
   @NgOutput() ionTabButtonDidUnload: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [selected]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [selected]);
+    outputs(this, [ionTabbarClick, ionTabButtonDidLoad, ionTabButtonDidUnload]);
+  }
 }
 
 @NgDirective({ selector: 'ion-tabbar' })
@@ -1209,7 +1374,9 @@ export class Tabbar {
    * If true, the tabbar will be translucent. Defaults to `false`.
    */
   @NgInput() translucent: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [placement, scrollable, layout, highlight, translucent]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [placement, scrollable, layout, highlight, translucent]);
+  }
 }
 
 @NgDirective({ selector: 'ion-tap-click' })
@@ -1222,7 +1389,9 @@ export class Text {
    * The color to use from your Sass `$colors` map. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information, see [Theming your App](/docs/theming/theming-your-app).
    */
   @NgInput() color: string;
-  constructor(el: ElementRef) { inputs(this, el, [color]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color]);
+  }
 }
 
 @NgDirective({ selector: 'ion-textarea' })
@@ -1299,7 +1468,10 @@ export class Textarea {
   @NgOutput() ionStyle: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
   @NgOutput() ionFocus: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [autocapitalize, autocomplete, autofocus, clearOnEdit, debounce, disabled, maxlength, minlength, name, placeholder, readonly, required, spellcheck, cols, rows, wrap, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [autocapitalize, autocomplete, autofocus, clearOnEdit, debounce, disabled, maxlength, minlength, name, placeholder, readonly, required, spellcheck, cols, rows, wrap, value]);
+    outputs(this, [ionInput, ionStyle, ionBlur, ionFocus]);
+  }
 }
 
 @NgDirective({ selector: 'ion-thumbnail' })
@@ -1332,7 +1504,10 @@ export class Toggle {
   @NgOutput() ionFocus: NgEventEmitter<any>;
   @NgOutput() ionBlur: NgEventEmitter<any>;
   @NgOutput() ionStyle: NgEventEmitter<any>;
-  constructor(el: ElementRef) { inputs(this, el, [color, name, checked, disabled, value]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, name, checked, disabled, value]);
+    outputs(this, [ionChange, ionFocus, ionBlur, ionStyle]);
+  }
 }
 
 @NgDirective({ selector: 'ion-toolbar' })
@@ -1345,7 +1520,9 @@ export class Toolbar {
    * If true, the toolbar will be translucent. Note: In order to scroll content behind the toolbar, the `fullscreen` attribute needs to be set on the content. Defaults to `false`.
    */
   @NgInput() translucent: boolean;
-  constructor(el: ElementRef) { inputs(this, el, [color, translucent]); }
+  constructor(el: ElementRef) {
+    inputs(this, el, [color, translucent]);
+  }
 }
 
 @NgDirective({ selector: 'ion-title' })
