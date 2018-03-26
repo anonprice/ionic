@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AlertPageComponent } from './alert-page.component';
@@ -9,7 +9,6 @@ import { AlertRoutingModule } from './alert-routing.module';
     CommonModule,
     AlertRoutingModule
   ],
-  declarations: [AlertPageComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [AlertPageComponent]
 })
 export class AlertModule { }

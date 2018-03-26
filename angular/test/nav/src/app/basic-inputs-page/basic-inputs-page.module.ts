@@ -1,6 +1,6 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { IonicAngularModule } from '@ionic/angular';
 
 import { BasicInputsPageComponent } from './basic-inputs-page.component';
@@ -13,7 +13,6 @@ import { BasicInputsPageRoutingModule } from './basic-inputs-page-routing.module
     FormsModule,
     IonicAngularModule
   ],
-  declarations: [BasicInputsPageComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [BasicInputsPageComponent]
 })
 export class BasicInputsPageModule {}

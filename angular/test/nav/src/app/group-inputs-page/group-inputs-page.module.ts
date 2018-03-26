@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicAngularModule } from '@ionic/angular';
@@ -13,7 +13,6 @@ import { GroupInputsPageRoutingModule } from './group-inputs-page-routing.module
     GroupInputsPageRoutingModule,
     IonicAngularModule
   ],
-  declarations: [GroupInputsPageComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [GroupInputsPageComponent]
 })
 export class GroupInputsPageModule {}

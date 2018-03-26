@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ToastPageComponent } from './toast-page.component';
@@ -9,7 +9,6 @@ import { ToastRoutingModule } from './toast-routing.module';
     CommonModule,
     ToastRoutingModule
   ],
-  declarations: [ToastPageComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [ToastPageComponent]
 })
 export class ToastModule { }

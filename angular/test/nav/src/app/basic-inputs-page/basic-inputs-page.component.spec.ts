@@ -1,4 +1,3 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
@@ -15,7 +14,6 @@ describe('InputsTestPageComponent', () => {
       TestBed.configureTestingModule({
         declarations: [BasicInputsPageComponent],
         imports: [FormsModule, IonicAngularModule.forRoot()],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
       }).compileComponents();
     })
   );

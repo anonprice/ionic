@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NoRoutingNavPageComponent } from './no-routing-nav.component';
@@ -25,7 +25,6 @@ import { PageThree } from './pages/page-three';
     PageOne,
     PageTwo,
     PageThree
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  ]
 })
 export class NoRoutingNavModule { }

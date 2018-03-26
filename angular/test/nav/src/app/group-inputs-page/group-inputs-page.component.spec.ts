@@ -1,4 +1,3 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { IonicAngularModule } from '@ionic/angular';
@@ -13,8 +12,7 @@ describe('GroupInputsPageComponent', () => {
     async(() => {
       TestBed.configureTestingModule({
         imports: [FormsModule, IonicAngularModule],
-        declarations: [GroupInputsPageComponent],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        declarations: [GroupInputsPageComponent]
       }).compileComponents();
     })
   );
