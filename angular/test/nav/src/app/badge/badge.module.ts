@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { IonicModule } from '@ionic/angular';
 import { BadgePageComponent } from './badge-page.component';
 import { BadgeRoutingModule } from './badge-routing.module';
-import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   imports: [
