@@ -35,9 +35,9 @@
           <ion-text *ngIf="viewJobTitle.invalid && (viewJobTitle.dirty || viewJobTitle.touched)" color="danger">
             <small *ngIf="viewJobTitle.errors['required']">Job Title is required</small>
           </ion-text>
-          <ion-divider>
+          <ion-item-divider>
             <ion-label>I Would Like To:</ion-label>
-          </ion-divider>
+          </ion-item-divider>
           <ion-item>
             <ion-label>Drink the Beers</ion-label>
             <ion-toggle name="drinkBeers" color="dark" [(ngModel)]="drinkBeers"></ion-toggle>
@@ -69,9 +69,9 @@
           <ion-text *ngIf="viewSalary.invalid && (viewSalary.dirty || viewSalary.touched)" color="danger">
             <small *ngIf="viewSalary.errors['required']">Desired Salary is required</small>
           </ion-text>
-          <ion-divider>
+          <ion-item-divider>
             <ion-label>My Level of Happy</ion-label>
-          </ion-divider>
+          </ion-item-divider>
           <ion-item>
             <ion-range name="levelOfHappy" [(ngModel)]="levelOfHappy">
               <ion-icon name="sad" slot="start"></ion-icon>
